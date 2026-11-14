@@ -18,6 +18,97 @@ npm test           # run every test file
 npm run build      # production build into dist/
 ```
 
+## Hướng dẫn cài đặt thư viện
+
+### Yêu cầu
+
+- [Node.js](https://nodejs.org/) 20 trở lên (kiểm tra: `node -v`)
+- [Python](https://www.python.org/) 3.11 trở lên (kiểm tra: `python --version`)
+- [Git](https://git-scm.com/) (cần để cài Spec Kit từ GitHub)
+
+Các lệnh dưới đây chạy trong thư mục gốc của project (thư mục chứa `package.json`).
+
+### 1. Cài Phaser (và các thư viện JavaScript khác)
+
+Phaser, Vite và font đã được khai báo trong `package.json`, nên chỉ cần:
+
+```bash
+npm install
+```
+
+Lệnh này tạo thư mục `node_modules/`. Nếu tạo project mới từ đầu và muốn tự thêm Phaser:
+
+```bash
+npm install phaser
+npm install --save-dev vite
+```
+
+Kiểm tra: `npm run dev` rồi mở http://localhost:8080.
+
+### 2. Tạo môi trường ảo Python (venv)
+
+Spec Kit được cài trong venv `.venv` của project, không cài global. `.venv` nằm trong `.gitignore`,
+nên sau khi clone project phải tạo lại:
+
+```bash
+python -m venv .venv
+```
+
+Kích hoạt venv (không bắt buộc, nhưng sau đó có thể gõ thẳng `specify`, `pip`):
+
+| Shell | Lệnh |
+| ----- | ---- |
+| PowerShell | `.venv\Scripts\Activate.ps1` |
+| cmd | `.venv\Scripts\activate.bat` |
+| Git Bash | `source .venv/Scripts/activate` |
+| macOS / Linux | `source .venv/bin/activate` |
+
+Thoát venv: `deactivate`. Muốn xoá sạch mọi thứ đã cài: xoá thư mục `.venv`.
+
+Nếu PowerShell báo lỗi "running scripts is disabled", chạy một lần:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+```
+
+### 3. Cài Spec Kit (`specify` CLI)
+
+Sau khi đã kích hoạt venv:
+
+```bash
+pip install git+https://github.com/github/spec-kit.git
+specify --help
+```
+
+Hoặc không cần kích hoạt venv (Windows):
+
+```bash
+.venv\Scripts\python -m pip install git+https://github.com/github/spec-kit.git
+```
+
+Cập nhật Spec Kit: chạy lại lệnh `pip install` ở trên kèm `--upgrade`.
+
+Project đã có sẵn thư mục `.specify/` và `.claude/skills/speckit-*`, nên **không cần** chạy `specify init`
+khi mới clone. Chỉ chạy lại khi muốn cập nhật template/lệnh sau khi nâng cấp Spec Kit:
+
+```bash
+specify init --here --force --non-interactive --integration claude --ignore-agent-tools
+```
+
+(`--ignore-agent-tools` cần khi lệnh `claude` không có trong PATH, ví dụ chỉ dùng extension VS Code.)
+
+Cách dùng các lệnh `/speckit-*` trong Claude Code: xem [specins.md](specins.md).
+
+### Tóm tắt (clone về máy mới, Windows PowerShell)
+
+```powershell
+npm install
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install git+https://github.com/github/spec-kit.git
+npm run dev
+```
+
 ## Game flow
 
 1. **Mission Briefing** (`MissionSelectScene`): LEO, Moon or Mars, each with a budget, a delta-v
