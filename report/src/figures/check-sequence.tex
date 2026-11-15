@@ -1,0 +1,47 @@
+% Figure: the simulator's check sequence, in flight order, with the outcome each failure produces.
+\begin{tikzpicture}[x=1cm, y=1cm]
+  % ----- checks (centre column) and outcomes (right column)
+  \newcommand{\chk}[5]{% name, y, title, outcome code, outcome label
+    \node[occheck] (#1) at (0,#2) {#3};
+    \node[ocfail] (#1f) at (6.4,#2) {#4};
+    \draw[ocfailarr] (#1.east) -- (#1f.west);
+  }
+  \chk{c1}{0}{\tr{Design review: lắp đúng quy tắc}{Design review: assembly rules}}{INVALID\_DESIGN}{}
+  \chk{c2}{-1.0}{\tr{Budget: chi phí $\le$ ngân sách}{Budget: cost $\le$ budget}}{OVER\_BUDGET}{}
+  \chk{c3}{-2.45}{\tr{Liftoff: lực đẩy / trọng lượng $> 1$}{Liftoff: thrust / weight $> 1$}}{NO\_LIFTOFF}{}
+  \chk{c4}{-3.45}{\tr{Stability: CP nằm sau CG}{Stability: CP behind CG}}{UNSTABLE}{}
+  \chk{c5}{-4.45}{\tr{$\Delta v$ đủ để vào quỹ đạo}{Enough $\Delta v$ to reach orbit}}{SUBORBITAL}{}
+  \chk{c6}{-5.9}{\tr{$\Delta v$ còn lại đủ để chuyển quỹ đạo}{Remaining $\Delta v$ for transfer}}{STRANDED}{}
+  \chk{c7}{-7.35}{\tr{Power: điện mặt trời + pin qua vùng tối}{Power: solar + battery through eclipse}}{DEAD\_BUS}{}
+  \chk{c8}{-8.35}{\tr{Thermal: đủ mức tản nhiệt}{Thermal: enough thermal control}}{THERMAL}{}
+  \chk{c9}{-9.35}{\tr{Comms: radio đủ tầm tới Trái Đất}{Comms: radio reaches Earth}}{LOSS\_OF\_SIGNAL}{}
+  \chk{c10}{-10.35}{\tr{Data: băng thông $\ge$ dữ liệu/ngày}{Data: bandwidth $\ge$ data per day}}{DATA\_BOTTLENECK}{}
+  \chk{c11}{-11.35}{\tr{Science: đủ điểm + đủ loại thiết bị}{Science: score + instrument types}}{SCIENCE\_SHORTFALL}{}
+  \node[ocwin] (ok) at (0,-12.75) {MISSION SUCCESS};
+
+  % ----- pass arrows down the spine
+  \foreach \a/\b in {c1/c2, c2/c3, c3/c4, c4/c5, c5/c6, c6/c7, c7/c8, c8/c9, c9/c10, c10/c11, c11/ok}
+    \draw[ocokarr] (\a.south) -- (\b.north);
+
+  % ----- LEO has no transfer: bypass on the left
+  \draw[ocokarr, dashed, draw=muted] (c5.west) -- ++(-0.45,0) |- (c7.west)
+     node[pos=0.25, oclbl, rotate=90, anchor=south, fill=white] {\tr{LEO: bỏ qua}{LEO: skip}};
+
+  % ----- phase groups
+  \begin{scope}[on background layer]
+    \node[ocgroup, fit=(c1)(c2)] (g1) {};
+    \node[ocgroup, fit=(c3)(c5)] (g2) {};
+    \node[ocgroup=warnc!8, fit=(c6)] (g3) {};
+    \node[ocgroup=okc!7, fit=(c7)(c11)] (g4) {};
+  \end{scope}
+  \node[ocgrouplabel, rotate=90, anchor=south] at ($(g1.west)+(-0.9,0)$) {\tr{TRƯỚC PHÓNG}{PRE-LAUNCH}};
+  \node[ocgrouplabel, rotate=90, anchor=south] at ($(g2.west)+(-0.9,0)$) {\tr{PHÓNG}{LAUNCH}};
+  \node[ocgrouplabel, rotate=90, anchor=south, text=warnc] at ($(g3.west)+(-0.9,0)$) {\tr{CHUYỂN}{TRANSFER}};
+  \node[ocgrouplabel, rotate=90, anchor=south, text=okc] at ($(g4.west)+(-0.9,0)$) {\tr{VẬN HÀNH TRÊN QUỸ ĐẠO}{ORBIT OPERATIONS}};
+
+  % ----- column headers + legend
+  \node[font=\sffamily\small\bfseries, text=accent] at (0,0.9) {\tr{Bước kiểm tra}{Check}};
+  \node[font=\sffamily\small\bfseries, text=failc] at (6.4,0.9) {\tr{Kết quả nếu hỏng}{Outcome if it fails}};
+  \draw[ocokarr] (-2.2,-13.75) -- ++(0.7,0) node[right, oclbl, fill=none]{\tr{đạt: sang bước tiếp theo}{pass: go to the next check}};
+  \draw[ocfailarr] (2.6,-13.75) -- ++(0.7,0) node[right, oclbl, fill=none]{\tr{hỏng: nguyên nhân gốc của thất bại}{fail: root cause of the failure}};
+\end{tikzpicture}

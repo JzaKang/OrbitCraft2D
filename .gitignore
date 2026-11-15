@@ -1,3 +1,4 @@
 node_modules
 dist
 .venv
+report/src/build

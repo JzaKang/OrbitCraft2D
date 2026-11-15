@@ -1,0 +1,47 @@
+% Figure: main game loop (Mission Briefing -> Workshop -> Launch -> Report -> back).
+\begin{tikzpicture}[node distance=8mm and 14mm]
+  \node[ocstep] (A) {\textbf{1. MISSION BRIEFING}\\[1pt]
+    \tr{Chọn nhiệm vụ: LEO / Mặt Trăng / Sao Hỏa}{Choose a mission: LEO / Moon / Mars}\\[-1pt]
+    {\scriptsize\color{muted}\tr{ngân sách · $\Delta v$ · mục tiêu khoa học · khoảng cách}{budget · $\Delta v$ · science goal · distance}}};
+  \node[ocstep, below=of A] (B) {\textbf{2. \tr{XƯỞNG LẮP RÁP}{WORKSHOP}}\\[1pt]
+    \tr{Kéo-thả linh kiện lên tên lửa}{Drag and drop parts onto the rocket}};
+  \node[ocaux, right=24mm of B] (C) {\textbf{\tr{Mô phỏng tức thì}{Instant simulation}}\\[1pt]
+    {\scriptsize\code{runMission()}}\\[-1pt]{\scriptsize \tr{thanh đo + mốc CG/CP}{meters + CG/CP markers}}};
+  \node[ocdecision, below=9mm of B] (D) {\tr{Thiết kế\\hợp lệ?}{Design\\valid?}};
+  \node[ocstep, below=9mm of D] (E) {\textbf{3. \tr{PHÓNG THỬ NGHIỆM}{TEST LAUNCH}}\\[1pt]
+    \tr{Hoạt ảnh phát lại kết quả mô phỏng}{Animation plays back the simulated result}};
+  \node[ocstep, below=of E] (F) {\textbf{4. \tr{BÁO CÁO KHÁM NGHIỆM}{POST-MORTEM REPORT}}\\[1pt]
+    \tr{Nguyên nhân · Linh kiện lỗi · Cách sửa}{Root cause · Faulty parts · How to fix}};
+  \node[ocdecision, below=9mm of F] (G) {\tr{Thành\\công?}{Success?}};
+  \node[ocgood, below=9mm of G] (H) {\textbf{\tr{Chấm 1--3 sao}{Rate 1--3 stars}}\\[1pt]
+    \tr{Lưu thành tích}{Save progress}};
+
+  % main spine
+  \draw[ocarr] (A) -- (B);
+  \draw[ocarr] (B) -- node[oclbl, right=1mm]{\textbf{LAUNCH}} (D);
+  \draw[ocokarr] (D) -- node[oclbl, right=1mm]{\tr{Có}{Yes}} (E);
+  \draw[ocarr] (E) -- (F);
+  \draw[ocarr] (F) -- (G);
+  \draw[ocokarr] (G) -- node[oclbl, right=1mm]{\tr{Có}{Yes}} (H);
+
+  % live simulation loop
+  \draw[ocarr] ([yshift=2.5mm]B.east) -- node[oclbl, above]{\tr{mỗi thay đổi}{every change}} ([yshift=2.5mm]C.west);
+  \draw[ocarr, draw=muted] ([yshift=-2.5mm]C.west) -- node[oclbl, below]{\tr{dự đoán lỗi}{predicted failure}} ([yshift=-2.5mm]B.east);
+
+  % left-hand loops back to the workshop
+  \coordinate (L1) at ($(B.west)+(-9mm,0)$);
+  \coordinate (L2) at ($(B.west)+(-21mm,0)$);
+  \draw[ocarr, draw=failc] (D.west) -- node[oclbl, above, text=failc]{\tr{Không}{No}} (D.west -| L1)
+        |- ([yshift=-2.5mm]B.west);
+  \node[oclbl, rotate=90, anchor=south, text=failc] at ($(D.west -| L1)!0.5!([yshift=-2.5mm]B.west -| L1)$) {\tr{sửa lỗi đỏ}{fix red items}};
+  \draw[ocarr, draw=failc] (G.west) -- node[oclbl, above, text=failc]{\tr{Không}{No}} (G.west -| L2)
+        |- ([yshift=2.5mm]B.west);
+  \node[oclbl, rotate=90, anchor=south, text=failc] at ($(G.west -| L2)!0.5!([yshift=2.5mm]B.west -| L2)$)
+        {FIX IN WORKSHOP · \tr{linh kiện lỗi nhấp nháy đỏ}{faulty parts flash red}};
+
+  % right-hand loop: next mission
+  \coordinate (R) at ($(C.east)+(8mm,0)$);
+  \draw[ocarr, draw=okc] (H.east) -- (H.east -| R) |- (A.east);
+  \node[oclbl, rotate=-90, anchor=south, text=okc] at ($(H.east -| R)!0.62!(A.east -| R)$)
+        {\tr{thử nhiệm vụ khó hơn hoặc tối ưu chi phí}{try a harder mission or cut the cost}};
+\end{tikzpicture}

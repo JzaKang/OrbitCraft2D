@@ -1,0 +1,36 @@
+% Figure: code architecture (data -> pure logic -> display).
+\begin{tikzpicture}[x=1cm, y=1cm]
+  % data
+  \node[ocmodule] (parts) at (0,1.2) {\code{parts.js}\\{\scriptsize\tr{30 linh kiện + nguồn}{30 parts + sources}}};
+  \node[ocmodule] (missions) at (0,-0.6) {\code{missions.js}\\{\scriptsize\tr{3 nhiệm vụ}{3 missions}}};
+  % core
+  \node[ocmodule] (design) at (4.6,1.2) {\code{design.js}\\{\scriptsize\tr{lắp ráp, chia tầng, kiểm lỗi}{assembly, staging, validation}}};
+  \node[ocmodule] (physics) at (8.6,1.2) {\code{physics.js}\\{\scriptsize\tr{công thức vật lý}{physics formulas}}};
+  \node[ocmodule] (analysis) at (4.6,-0.6) {\code{analysis.js}\\{\scriptsize $\Delta v$, CG/CP, \tr{điện, nhiệt, liên lạc}{power, thermal, comms}}};
+  \node[ocmodule] (simulate) at (4.6,-2.4) {\code{simulate.js}\\{\scriptsize\tr{chuỗi kiểm tra + chẩn đoán}{check sequence + diagnosis}}};
+  \node[ocmodule] (score) at (8.6,-2.4) {\code{score.js}\\{\scriptsize\tr{chấm sao}{star rating}}};
+  % view
+  \node[ocmodule, minimum width=36mm] (scenes) at (4.6,-5.0) {\textbf{\tr{Các màn hình}{Scenes}}\\{\scriptsize MissionSelect $\to$ Builder $\to$ Launch $\to$ Report}};
+  \node[ocmodule] (art) at (0,-5.0) {\code{src/art}\\{\scriptsize\tr{pixel art sinh bằng code}{code-generated pixel art}}};
+  \node[ocmodule] (ui) at (4.6,-6.8) {\code{src/ui}\\{\scriptsize\tr{nút, thanh đo, âm thanh}{buttons, meters, sound}}};
+
+  \begin{scope}[on background layer]
+    \node[ocgroup=white, fit=(parts)(missions), inner sep=9pt] (gd) {};
+    \node[ocgroup, fit=(design)(physics)(score)(simulate), inner sep=9pt] (gc) {};
+    \node[ocgroup=okc!7, fit=(art)(scenes)(ui), inner sep=9pt] (gv) {};
+  \end{scope}
+  \node[ocgrouplabel, anchor=south west] at (gd.north west) {\code{src/data} --- \tr{Dữ liệu}{Data}};
+  \node[ocgrouplabel, anchor=south west] at (gc.north west) {\code{src/core} --- \tr{Logic thuần, có test (npm test)}{Pure logic, tested (npm test)}};
+  \node[ocgrouplabel, anchor=north west, text=okc] at (gv.south west) {\code{src/scenes + ui + art} --- \tr{Hiển thị (Phaser 4)}{Display (Phaser 4)}};
+
+  \draw[ocarr] (parts) -- (design);
+  \draw[ocarr] (missions) -- (analysis);
+  \draw[ocarr] (physics.south) |- (analysis.east);
+  \draw[ocarr] (design) -- (analysis);
+  \draw[ocarr] (analysis) -- (simulate);
+  \draw[ocarr] (simulate) -- (score);
+  \draw[ocarr] (simulate) -- node[oclbl, right=1mm]{\tr{kết quả + chẩn đoán}{result + diagnosis}} (scenes);
+  \draw[ocarr] (score.south) |- (scenes.east);
+  \draw[ocarr] (art) -- (scenes);
+  \draw[ocarr] (ui) -- (scenes);
+\end{tikzpicture}

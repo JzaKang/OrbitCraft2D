@@ -1,0 +1,116 @@
+% Shared style for the OrbitCraft 2D internal tutorial (Vietnamese + English).
+% Compile with XeLaTeX (see build.ps1). Each main file defines \tr before \input-ing this:
+%   \newcommand{\tr}[2]{#1}  % Vietnamese  |  \newcommand{\tr}[2]{#2}  % English
+
+\usepackage[a4paper, margin=2cm, headheight=14pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{Cambria}
+\setsansfont{Calibri}
+\setmonofont{Consolas}[Scale=0.92]
+\newfontfamily\symfont{Segoe UI Symbol}
+
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tabularx, booktabs, array}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, shapes.geometric, fit, backgrounds, calc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+
+% ---------- colours (match the game UI) ----------
+\definecolor{accent}{HTML}{1F6FB2}
+\definecolor{accentlight}{HTML}{E8F1FA}
+\definecolor{ink}{HTML}{1E2433}
+\definecolor{muted}{HTML}{5B6478}
+\definecolor{okc}{HTML}{2A8A3C}
+\definecolor{warnc}{HTML}{C98A00}
+\definecolor{failc}{HTML}{C0392B}
+\definecolor{rule}{HTML}{C9D3E3}
+\color{ink}
+
+% ---------- layout ----------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\linespread{1.08}
+\setlist{itemsep=2pt, topsep=3pt, leftmargin=*}
+\renewcommand{\arraystretch}{1.25}
+
+\titleformat{\section}{\sffamily\LARGE\bfseries\color{accent}}{\thesection.}{0.5em}{}[{\color{accent}\titlerule[1pt]}]
+\titleformat{\subsection}{\sffamily\Large\bfseries\color{ink}}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\sffamily\large\bfseries\color{muted}}{\thesubsubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{16pt}{8pt}
+\titlespacing*{\subsection}{0pt}{12pt}{4pt}
+\titlespacing*{\subsubsection}{0pt}{10pt}{3pt}
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\small\color{muted} OrbitCraft 2D --- \tr{Hướng dẫn}{Tutorial}}
+\fancyhead[R]{\sffamily\small\color{muted} \tr{Tài liệu nội bộ}{Internal document}}
+\fancyfoot[C]{\sffamily\small\color{muted}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{{\color{rule}\hrule width\headwidth height\headrulewidth}}
+
+% ---------- inline helpers ----------
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\kbd}[1]{\tikz[baseline=(k.base)]\node[draw=muted, rounded corners=1.5pt, inner xsep=2.5pt, inner ysep=1.2pt, fill=accentlight, font=\ttfamily\footnotesize](k){#1};}
+\newcommand{\starsym}{{\symfont ★}}
+\newcommand{\stars}[1]{\leavevmode{\color{warnc}\symfont\foreach \i in {1,...,#1}{★}}}
+\newcommand{\outcome}[1]{{\ttfamily\small\color{failc}\detokenize{#1}}}
+\newcommand{\dv}{$\Delta v$}
+
+% ---------- tables ----------
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\thead}[1]{\sffamily\bfseries\small #1}
+\newenvironment{dtable}[1]
+  {\par\small\noindent\tabularx{\linewidth}{#1}\toprule}
+  {\bottomrule\endtabularx\par}
+
+% ---------- callout boxes ----------
+\newtcolorbox{tipbox}[1][]{enhanced, breakable, colback=accentlight, colframe=accent, boxrule=0.6pt,
+  arc=2pt, left=8pt, right=8pt, top=5pt, bottom=5pt, fonttitle=\sffamily\bfseries, #1}
+\newtcolorbox{warnbox}[1][]{enhanced, breakable, colback=warnc!8, colframe=warnc, boxrule=0.6pt,
+  arc=2pt, left=8pt, right=8pt, top=5pt, bottom=5pt, fonttitle=\sffamily\bfseries, #1}
+\newtcolorbox{sourcebox}[1]{enhanced, colback=white, colframe=rule, boxrule=0.5pt, arc=2pt,
+  left=8pt, right=8pt, top=4pt, bottom=4pt, title={#1}, coltitle=ink, colbacktitle=accentlight,
+  fonttitle=\sffamily\bfseries, attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={colframe=rule, boxrule=0.5pt, arc=2pt}}
+
+% ---------- figure frame ----------
+% \begin{diagram}{caption}{label} ... \end{diagram}
+\newenvironment{diagram}[2]
+  {\begin{figure}[H]\centering\def\diagramcaption{#1}\def\diagramlabel{#2}%
+   \begin{tcolorbox}[colback=white, colframe=rule, boxrule=0.5pt, arc=2pt, width=\linewidth, halign=center]}
+  {\end{tcolorbox}\caption{\diagramcaption}\label{\diagramlabel}\end{figure}}
+
+\usepackage{caption}
+\captionsetup{font={small,sf}, labelfont={bf,color=accent}}
+
+% ---------- TikZ styles shared by all diagrams ----------
+\tikzset{
+  ocbase/.style={rectangle, rounded corners=3pt, align=center, font=\sffamily\small, inner sep=5pt, thick},
+  ocstep/.style={ocbase, draw=accent, fill=accentlight, minimum width=58mm, minimum height=11mm},
+  ocaux/.style={ocbase, draw=muted, fill=white, dashed, minimum width=40mm, minimum height=11mm},
+  ocgood/.style={ocbase, draw=okc, fill=okc!10, minimum width=58mm, minimum height=10mm},
+  ocdecision/.style={diamond, aspect=2.6, draw=warnc, fill=warnc!10, thick, align=center, font=\sffamily\small\bfseries, inner sep=1.5pt},
+  occheck/.style={ocbase, draw=accent, fill=white, minimum width=50mm, minimum height=8mm, inner sep=3pt},
+  ocfail/.style={rectangle, rounded corners=2pt, draw=failc, fill=failc!8, font=\ttfamily\footnotesize, text=failc, minimum width=38mm, minimum height=7mm},
+  ocwin/.style={rectangle, rounded corners=8pt, draw=okc, fill=okc!15, thick, font=\sffamily\small\bfseries, text=okc, minimum width=50mm, minimum height=8mm},
+  ocmodule/.style={ocbase, draw=accent, fill=white, minimum width=34mm, minimum height=10mm, inner sep=3pt},
+  ocarr/.style={-{Stealth[length=2.6mm]}, thick, draw=ink},
+  ocokarr/.style={-{Stealth[length=2.4mm]}, thick, draw=okc},
+  ocfailarr/.style={-{Stealth[length=2.2mm]}, dashed, draw=failc},
+  oclbl/.style={font=\sffamily\scriptsize, fill=white, inner sep=1.5pt, text=muted, align=center},
+  ocgroup/.style={rectangle, rounded corners=5pt, draw=rule, fill=#1, inner sep=7pt},
+  ocgroup/.default=accentlight!45,
+  ocgrouplabel/.style={font=\sffamily\footnotesize\bfseries, text=accent},
+}

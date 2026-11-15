@@ -1,0 +1,841 @@
+Rc files read (in order):
+  NONE
+Latexmk: This is Latexmk, John Collins, 9 March 2026. Version 4.88.
+Latexmk: applying rule 'xelatex'...
+Rule 'xelatex':  Reasons for rerun
+Changed files or newly in use/created:
+  tutorial-vi.tex
+Category 'changed_user':
+  tutorial-vi.tex
+
+------------
+Run number 1 of rule 'xelatex'
+------------
+------------
+Running 'xelatex -no-pdf -interaction=nonstopmode -halt-on-error -recorder -output-directory="build"  "tutorial-vi.tex"'
+------------
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(tutorial-vi.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-08-10>
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/base\article.c
+ls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.cl
+o))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.
+sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/babel\xebabe
+l.def)
+*************************************
+* Local config file bblopts.cfg used
+*
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.
+cfg)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale
+/vi\babel-vietnamese.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/babel-vietname
+se\vietnamese.ldf
+
+Package babel Warning: No hyphenation patterns were preloaded for
+(babel)                the language 'Vietnamese' into the format.
+(babel)                Please, configure your TeX system to add them and
+(babel)                rebuild the format. Now I will use the patterns
+(babel)                preloaded for \language=0 instead on input line 36.
+
+)) (preamble.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geome
+try.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyva
+l.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex
+.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.
+sty))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geome
+try.cfg))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fonts
+pec.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fonts
+pec-xetex.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.s
+ty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fonts
+pec.cfg)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmat
+h.sty
+For additional information on amsmath, use the `?' option.
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstex
+t.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen
+.sty))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy
+.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn
+.sty))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.
+sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\c
+olor.cfg)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\x
+etex.def)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathc
+olor.ltx))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graph
+icx.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graph
+ics.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.
+sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\g
+raphics.cfg)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/float\float.st
+y)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx
+.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.st
+y))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\bookt
+abs.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumi
+tem.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancy
+hdr.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\title
+sec.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcol
+orbox.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendla
+yer\tikz.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer
+\pgf.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\
+pgfrcs.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfutil-common.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfutil-latex.def)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfrcs.code.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revi
+sion.tex)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer
+\pgfcore.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlaye
+r\pgfsys.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsys.code.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfkeys.code.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfkeyslibraryfiltered.code.tex))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgf.cfg)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsys-xetex.def
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsys-dvipdfmx.def
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsys-common-pdf.def))))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsyssoftpath.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsysprotocol.code.tex))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcore.code.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+math.code.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathutil.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathparser.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.basic.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.trigonometric.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.random.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.comparison.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.base.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.round.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.misc.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.integerarithmetics.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathcalc.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfloat.code.tex))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+int.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorepoints.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorepathconstruct.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorepathusage.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorescopes.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoregraphicstate.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoretransformations.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorequick.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoreobjects.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorepathprocessing.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorearrows.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoreshade.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoreimage.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoreexternal.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorelayers.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoretransparency.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorepatterns.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorerdf.code.tex)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\
+pgfmoduleshapes.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\
+pgfmoduleplot.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibil
+ity\pgfcomp-version-0-65.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibil
+ity\pgfcomp-version-1-18.sty))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\
+pgffor.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\
+pgfkeys.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfkeys.code.tex))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfma
+th.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+math.code.tex))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgffor.code.tex))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz\tikz.code.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/librarie
+s\pgflibraryplothandlers.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\
+pgfmodulematrix.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibrarytopaths.code.tex)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim
+.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/environ\enviro
+n.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\tri
+mspaces.sty))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etool
+box.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbr
+aster.code.tex
+Library (tcolorbox): 'tcbraster.code.tex' version '6.10.0'
+)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbs
+kins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '6.10.0'
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzf
+ill.image.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzl
+ibraryfill.image.code.tex))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbs
+kinsjigsaw.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.10.0'
+))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbb
+reakable.code.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '6.10.0'
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pdfcol\pdfcol.
+sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxc
+mds.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\in
+fwarerr.sty)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbh
+ooks.code.tex
+Library (tcolorbox): 'tcbhooks.code.tex' version '6.10.0'
+)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbt
+heorems.code.tex
+Library (tcolorbox): 'tcbtheorems.code.tex' version '6.10.0'
+)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbf
+itting.code.tex
+Library (tcolorbox): 'tcbfitting.code.tex' version '6.10.0'
+)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbl
+istingsutf8.code.tex
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.10.0'
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbl
+istings.code.tex
+Library (tcolorbox): 'tcblistings.code.tex' version '6.10.0'
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/listings\listi
+ngs.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpa
+tch.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmi
+sc.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/listings\listi
+ngs.cfg))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbl
+istingscore.code.tex
+Library (tcolorbox): 'tcblistingscore.code.tex' version '6.10.0'
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbp
+rocessing.code.tex
+Library (tcolorbox): 'tcbprocessing.code.tex' version '6.10.0'
+))))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbe
+xternal.code.tex
+Library (tcolorbox): 'tcbexternal.code.tex' version '6.10.0'
+)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbm
+agazine.code.tex
+Library (tcolorbox): 'tcbmagazine.code.tex' version '6.10.0'
+)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbv
+ignette.code.tex
+Library (tcolorbox): 'tcbvignette.code.tex' version '6.10.0'
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibraryfadings.code.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/librarie
+s\pgflibraryfadings.code.tex)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbp
+oster.code.tex
+Library (tcolorbox): 'tcbposter.code.tex' version '6.10.0'
+))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibrarypositioning.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/librarie
+s\pgflibraryarrows.meta.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibraryshapes.geometric.code.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/librarie
+s/shapes\pgflibraryshapes.geometric.code.tex))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibraryfit.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibrarybackgrounds.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibrarycalc.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyper
+ref.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvse
+tkeys.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys
+\kvdefinekeys.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pd
+fescape.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\p
+dftexcmds.sty))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolo
+r.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\namer
+ef.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refco
+unt.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestri
+ng\gettitlestring.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvop
+tions.sty)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\st
+ringenc.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1en
+c.def)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intc
+alc.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc
+.def)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitse
+t.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\b
+igintcalc.sty)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hxete
+x.def
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck
+\rerunfilecheck.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounte
+r\uniquecounter.sty)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/xurl\xurl.sty)
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/caption\captio
+n.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/caption\captio
+n3.sty)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\l3bac
+kend-xetex.def)
+(D:\Dai Hoc\FY\NASA-hackathon\Code\report\src\build\tutorial-vi.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+(D:\Dai Hoc\FY\NASA-hackathon\Code\report\src\build\tutorial-vi.out)
+(D:\Dai Hoc\FY\NASA-hackathon\Code\report\src\build\tutorial-vi.out)
+(D:\Dai Hoc\FY\NASA-hackathon\Code\report\src\build\tutorial-vi.toc) [1]
+(figures/game-loop.tex) [2] (figures/check-sequence.tex) [3]
+(figures/architecture.tex) [4] [5] [6] [7] [8] [9] [10] [11]
+(D:\Dai Hoc\FY\NASA-hackathon\Code\report\src\build\tutorial-vi.aux) )
+Output written on D:\Dai Hoc\FY\NASA-hackathon\Code\report\src\build\tutorial-v
+i.xdv (11 pages, 366008 bytes).
+Transcript written on "D:\Dai Hoc\FY\NASA-hackathon\Code\report\src\build\tutor
+ial-vi.log".
+Latexmk: Getting log file 'build/tutorial-vi.log'
+Latexmk: Examining 'build/tutorial-vi.fls'
+Latexmk: Examining 'build/tutorial-vi.log'
+Latexmk: Log file says output to 'D:/Dai Hoc/FY/NASA-hackathon/Code/report/src/build/tutorial-vi.xdv'
+Latexmk: applying rule 'xelatex'...
+Rule 'xelatex':  Reasons for rerun
+Changed files or newly in use/created:
+  D:/Dai Hoc/FY/NASA-hackathon/Code/report/src/build/tutorial-vi.aux
+  D:/Dai Hoc/FY/NASA-hackathon/Code/report/src/build/tutorial-vi.toc
+  build/tutorial-vi.aux
+  build/tutorial-vi.toc
+Category 'changed_user':
+  D:/Dai Hoc/FY/NASA-hackathon/Code/report/src/build/tutorial-vi.aux
+  D:/Dai Hoc/FY/NASA-hackathon/Code/report/src/build/tutorial-vi.toc
+
+------------
+Run number 2 of rule 'xelatex'
+------------
+------------
+Running 'xelatex -no-pdf -interaction=nonstopmode -halt-on-error -recorder -output-directory="build"  "tutorial-vi.tex"'
+------------
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(tutorial-vi.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-08-10>
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/base\article.c
+ls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.cl
+o))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.
+sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/babel\xebabe
+l.def)
+*************************************
+* Local config file bblopts.cfg used
+*
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.
+cfg)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale
+/vi\babel-vietnamese.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/babel-vietname
+se\vietnamese.ldf
+
+Package babel Warning: No hyphenation patterns were preloaded for
+(babel)                the language 'Vietnamese' into the format.
+(babel)                Please, configure your TeX system to add them and
+(babel)                rebuild the format. Now I will use the patterns
+(babel)                preloaded for \language=0 instead on input line 36.
+
+)) (preamble.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geome
+try.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyva
+l.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex
+.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.
+sty))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geome
+try.cfg))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fonts
+pec.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fonts
+pec-xetex.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.s
+ty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fonts
+pec.cfg)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmat
+h.sty
+For additional information on amsmath, use the `?' option.
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstex
+t.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen
+.sty))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy
+.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn
+.sty))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.
+sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\c
+olor.cfg)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\x
+etex.def)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathc
+olor.ltx))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graph
+icx.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graph
+ics.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.
+sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\g
+raphics.cfg)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/float\float.st
+y)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx
+.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.st
+y))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\bookt
+abs.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumi
+tem.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancy
+hdr.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\title
+sec.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcol
+orbox.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendla
+yer\tikz.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer
+\pgf.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\
+pgfrcs.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfutil-common.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfutil-latex.def)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfrcs.code.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revi
+sion.tex)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer
+\pgfcore.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlaye
+r\pgfsys.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsys.code.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfkeys.code.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfkeyslibraryfiltered.code.tex))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgf.cfg)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsys-xetex.def
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsys-dvipdfmx.def
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsys-common-pdf.def))))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsyssoftpath.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemla
+yer\pgfsysprotocol.code.tex))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcore.code.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+math.code.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathutil.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathparser.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.basic.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.trigonometric.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.random.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.comparison.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.base.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.round.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.misc.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfunctions.integerarithmetics.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathcalc.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+mathfloat.code.tex))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+int.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorepoints.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorepathconstruct.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorepathusage.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorescopes.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoregraphicstate.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoretransformations.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorequick.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoreobjects.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorepathprocessing.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorearrows.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoreshade.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoreimage.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoreexternal.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorelayers.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcoretransparency.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorepatterns.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclay
+er\pgfcorerdf.code.tex)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\
+pgfmoduleshapes.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\
+pgfmoduleplot.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibil
+ity\pgfcomp-version-0-65.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibil
+ity\pgfcomp-version-1-18.sty))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\
+pgffor.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\
+pgfkeys.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgfkeys.code.tex))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfma
+th.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgf
+math.code.tex))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilitie
+s\pgffor.code.tex))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz\tikz.code.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/librarie
+s\pgflibraryplothandlers.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\
+pgfmodulematrix.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibrarytopaths.code.tex)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim
+.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/environ\enviro
+n.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\tri
+mspaces.sty))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etool
+box.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbr
+aster.code.tex
+Library (tcolorbox): 'tcbraster.code.tex' version '6.10.0'
+)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbs
+kins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '6.10.0'
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzf
+ill.image.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzl
+ibraryfill.image.code.tex))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbs
+kinsjigsaw.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.10.0'
+))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbb
+reakable.code.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '6.10.0'
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/pdfcol\pdfcol.
+sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxc
+mds.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\in
+fwarerr.sty)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbh
+ooks.code.tex
+Library (tcolorbox): 'tcbhooks.code.tex' version '6.10.0'
+)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbt
+heorems.code.tex
+Library (tcolorbox): 'tcbtheorems.code.tex' version '6.10.0'
+)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbf
+itting.code.tex
+Library (tcolorbox): 'tcbfitting.code.tex' version '6.10.0'
+)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbl
+istingsutf8.code.tex
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.10.0'
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbl
+istings.code.tex
+Library (tcolorbox): 'tcblistings.code.tex' version '6.10.0'
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/listings\listi
+ngs.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpa
+tch.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmi
+sc.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/listings\listi
+ngs.cfg))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbl
+istingscore.code.tex
+Library (tcolorbox): 'tcblistingscore.code.tex' version '6.10.0'
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbp
+rocessing.code.tex
+Library (tcolorbox): 'tcbprocessing.code.tex' version '6.10.0'
+))))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbe
+xternal.code.tex
+Library (tcolorbox): 'tcbexternal.code.tex' version '6.10.0'
+)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbm
+agazine.code.tex
+Library (tcolorbox): 'tcbmagazine.code.tex' version '6.10.0'
+)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbv
+ignette.code.tex
+Library (tcolorbox): 'tcbvignette.code.tex' version '6.10.0'
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibraryfadings.code.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/librarie
+s\pgflibraryfadings.code.tex)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbp
+oster.code.tex
+Library (tcolorbox): 'tcbposter.code.tex' version '6.10.0'
+))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibrarypositioning.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/librarie
+s\pgflibraryarrows.meta.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibraryshapes.geometric.code.tex
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/librarie
+s/shapes\pgflibraryshapes.geometric.code.tex))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibraryfit.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibrarybackgrounds.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontend
+layer/tikz/libraries\tikzlibrarycalc.code.tex)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyper
+ref.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvse
+tkeys.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys
+\kvdefinekeys.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pd
+fescape.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\p
+dftexcmds.sty))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolo
+r.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\namer
+ef.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refco
+unt.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestri
+ng\gettitlestring.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvop
+tions.sty)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\st
+ringenc.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1en
+c.def)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intc
+alc.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc
+.def)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitse
+t.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\b
+igintcalc.sty)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hxete
+x.def
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck
+\rerunfilecheck.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounte
+r\uniquecounter.sty)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/xurl\xurl.sty)
+
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/caption\captio
+n.sty
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/caption\captio
+n3.sty)))
+(C:\Users\TRAN GIA KHANG\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\l3bac
+kend-xetex.def)
+(D:\Dai Hoc\FY\NASA-hackathon\Code\report\src\build\tutorial-vi.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+(D:\Dai Hoc\FY\NASA-hackathon\Code\report\src\build\tutorial-vi.out)
+(D:\Dai Hoc\FY\NASA-hackathon\Code\report\src\build\tutorial-vi.out)
+(D:\Dai Hoc\FY\NASA-hackathon\Code\report\src\build\tutorial-vi.toc) [1]
+(figures/game-loop.tex) [2] (figures/check-sequence.tex) [3]
+(figures/architecture.tex) [4] [5] [6] [7] [8] [9] [10] [11]
+(D:\Dai Hoc\FY\NASA-hackathon\Code\report\src\build\tutorial-vi.aux) )
+Output written on D:\Dai Hoc\FY\NASA-hackathon\Code\report\src\build\tutorial-v
+i.xdv (11 pages, 366020 bytes).
+Transcript written on "D:\Dai Hoc\FY\NASA-hackathon\Code\report\src\build\tutor
+ial-vi.log".
+Latexmk: Getting log file 'build/tutorial-vi.log'
+Latexmk: Examining 'build/tutorial-vi.fls'
+Latexmk: Examining 'build/tutorial-vi.log'
+Latexmk: Log file says output to 'D:/Dai Hoc/FY/NASA-hackathon/Code/report/src/build/tutorial-vi.xdv'
+Latexmk: applying rule 'xdvipdfmx'...
+Rule 'xdvipdfmx':  Reasons for rerun
+Changed files or newly in use/created:
+  build/tutorial-vi.xdv
+Category 'changed_source_rules':
+  xelatex
+
+------------
+Run number 1 of rule 'xdvipdfmx'
+------------
+------------
+Running 'xdvipdfmx -E -o "build/tutorial-vi.pdf"  "build/tutorial-vi.xdv"'
+------------
+build/tutorial-vi.xdv -> build/tutorial-vi.pdf
+[1][2][3][4][5][6][7][8][9][10][11]
+229986 bytes written
+Latexmk: All targets (build/tutorial-vi.xdv build/tutorial-vi.pdf) are up-to-date
+

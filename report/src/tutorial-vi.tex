@@ -1,0 +1,287 @@
+% OrbitCraft 2D — Hướng dẫn (bản tiếng Việt). Biên dịch: XeLaTeX (xem build.ps1).
+\documentclass[11pt]{article}
+\newcommand{\tr}[2]{#1}
+\usepackage[vietnamese]{babel}
+\input{preamble}
+
+\hypersetup{pdftitle={OrbitCraft 2D - Huong dan}, pdfsubject={NASA Space Apps Challenge 2026}}
+
+\begin{document}
+
+% ------------------------------------------------------------ title block (no cover page)
+{\sffamily
+{\fontsize{26}{30}\selectfont\bfseries\color{accent} OrbitCraft 2D}\\[2pt]
+{\Large\color{ink} Hướng dẫn dự án và cách chơi}\\[6pt]
+{\small\color{muted} Tài liệu nội bộ cho nhóm · Thử thách \emph{Space Mission Design Game} --- NASA Space Apps Challenge 2026 · Bản cập nhật \today}\par}
+\vspace{4pt}{\color{accent}\rule{\linewidth}{1.2pt}}
+
+\begin{tipbox}
+\textbf{Chạy game:} mở terminal trong thư mục dự án, gõ \code{npm install} (lần đầu) rồi \code{npm run dev}, trình duyệt mở \url{http://localhost:8080}. \quad
+\textbf{Chạy test:} \code{npm test}.
+\end{tipbox}
+
+{\small\setcounter{tocdepth}{2}\tableofcontents}
+
+% ============================================================ I
+\section{Giới thiệu dự án}
+
+\subsection{Vấn đề}
+
+Thiết kế một sứ mệnh không gian là bài toán \textbf{đánh đổi}: mỗi lựa chọn kỹ thuật kéo theo một chuỗi hệ quả.
+
+\begin{itemize}
+  \item Gắn thêm một thiết bị khoa học thì tàu nặng hơn, tên lửa mất bớt \dv{} và tốn thêm điện.
+  \item Thêm pin mặt trời để đủ điện thì lại tăng khối lượng và chi phí.
+  \item Bỏ cánh đuôi cho nhẹ thì tên lửa mất ổn định và lật nhào ngay sau khi rời bệ phóng.
+\end{itemize}
+
+Đề bài yêu cầu một trò chơi cho người chơi tự \textbf{thiết kế, quản lý và mô phỏng} một sứ mệnh hoàn chỉnh. Người chơi phải cân bằng 9 yếu tố: mục tiêu nhiệm vụ, thiết kế tàu, thiết bị khoa học, tên lửa phóng, ngân sách, nguồn điện, khối lượng, liên lạc và quỹ đạo.
+
+Các công cụ chuyên nghiệp như GMAT quá phức tạp với học sinh và người mới. Ngược lại, nhiều game ``vũ trụ'' chỉ là trắc nghiệm hoặc hoạt ảnh định sẵn: người chơi thấy kết quả \textbf{thành công / thất bại} nhưng không hiểu \textbf{vì sao}.
+
+\subsection{Giải pháp}
+
+\textbf{OrbitCraft 2D} là một web game 2D pixel-art nhẹ, chạy ngay trên trình duyệt. Mọi kết quả đều do vật lý thật quyết định, và game luôn giải thích nguyên nhân.
+
+\begin{dtable}{P{38mm}L}
+\thead{Điểm chính} & \thead{Cách thể hiện trong game} \\ \midrule
+\textbf{Nhân -- quả tức thì} & Mỗi lần đổi linh kiện, bảng số liệu và hai mốc \textbf{CG / CP} trên thân tàu cập nhật ngay. Người chơi biết trước điều gì sẽ hỏng. \\
+\textbf{Vật lý thật} & Phương trình tên lửa Tsiolkovsky cho từng tầng, tỷ lệ lực đẩy / trọng lượng, biên độ ổn định tĩnh theo TIR-33, cân bằng điện qua vùng tối quỹ đạo, tầm phủ sóng và băng thông liên lạc. \\
+\textbf{Khám nghiệm thất bại} & Sau mỗi chuyến bay, báo cáo chỉ ra \textbf{nguyên nhân gốc}, \textbf{linh kiện gây lỗi} và \textbf{cách sửa}. Bấm \emph{Fix in Workshop} để quay lại xưởng, linh kiện lỗi sẽ nhấp nháy đỏ. \\
+\textbf{12 kết quả khác nhau} & Kẹt bệ phóng, lật nhào, thiếu \dv, kẹt quỹ đạo đỗ, sập nguồn, hỏng nhiệt, mất tín hiệu, nghẽn dữ liệu, thiếu khoa học, quá ngân sách, thiết kế sai, thành công. \\
+\textbf{Dữ liệu NASA} & Phân hạng tàu nhỏ, loại tên lửa và kịch bản nhiệm vụ lấy từ tài liệu NASA. Mỗi linh kiện ghi rõ nguồn (xem phần~III). \\
+\end{dtable}
+
+\subsection{Workflow chính}
+
+\subsubsection{Vòng chơi}
+
+Người chơi đi qua 4 màn hình theo thứ tự (Hình~\ref{fig:loop}). Trong xưởng lắp ráp, mỗi thay đổi đều chạy lại mô phỏng ngay lập tức. Nhờ vậy người chơi thấy trước bước nào sẽ hỏng trước khi bấm phóng.
+
+\begin{diagram}{Vòng chơi chính: từ chọn nhiệm vụ tới báo cáo khám nghiệm và quay lại sửa.}{fig:loop}
+\input{figures/game-loop}
+\end{diagram}
+
+\subsubsection{Chuỗi kiểm tra khi phóng}
+
+Bộ mô phỏng (\code{src/core/simulate.js}) chạy 11 bước kiểm tra \textbf{theo đúng thứ tự chuyến bay} (Hình~\ref{fig:checks}). Bước \textbf{thất bại đầu tiên} là nguyên nhân gốc. Các bước sau vẫn được tính và hiện trong báo cáo dưới dạng \emph{(predicted)}, để người chơi sửa luôn một lần. Nhiệm vụ LEO không có bước chuyển quỹ đạo.
+
+\begin{diagram}{Chuỗi kiểm tra theo thứ tự chuyến bay và kết quả tương ứng khi mỗi bước thất bại.}{fig:checks}
+\input{figures/check-sequence}
+\end{diagram}
+
+\subsubsection{Kiến trúc mã nguồn}
+
+Phần logic tách hẳn khỏi phần hiển thị (Hình~\ref{fig:arch}). Toàn bộ vật lý nằm trong \code{src/core} dưới dạng hàm thuần, không phụ thuộc Phaser, nên được kiểm thử tự động bằng Node (\code{npm test}, 123 test). Các màn hình chỉ đọc kết quả mô phỏng để hiển thị, nên hoạt ảnh luôn khớp với báo cáo.
+
+\begin{diagram}{Kiến trúc mã nguồn: dữ liệu $\to$ logic thuần $\to$ hiển thị.}{fig:arch}
+\input{figures/architecture}
+\end{diagram}
+
+% ============================================================ II
+\clearpage
+\section{Cách chơi}
+
+\subsection{Chọn nhiệm vụ}
+
+\begin{dtable}{P{33mm}P{24mm}P{13mm}P{17mm}L}
+\thead{Nhiệm vụ} & \thead{Đích đến} & \thead{Ngân sách} & \thead{\dv{} cần} & \thead{Yêu cầu khoa học · Thử thách chính} \\ \midrule
+\stars{1}~\textbf{Eyes on Earth} & Quỹ đạo thấp 500\,km & \$25M & 9\,400\,m/s & Điểm $\ge 2$, có \emph{imaging}. Làm quen: ổn định khí động học. \\
+\stars{2}~\textbf{Lunar Prospector Jr.} & Quỹ đạo Mặt Trăng 100\,km & \$40M & 13\,400\,m/s & Điểm $\ge 4$, có \emph{spectrometer}. Liên lạc ở 384\,400\,km. \\
+\stars{3}~\textbf{Red Planet Scout} & Quỹ đạo Sao Hỏa 400\,km & \$70M & 15\,100\,m/s & Điểm $\ge 6$, có \emph{imaging} + \emph{spectrometer}. Nắng yếu (43\%), Trái Đất rất xa. \\
+\end{dtable}
+
+Bấm vào thẻ nhiệm vụ hoặc phím \kbd{1} \kbd{2} \kbd{3}. Mỗi nhiệm vụ mở ra với một \textbf{thiết kế mẫu có đúng một lỗi} để bạn tự tìm và sửa.
+
+\subsection{Lắp ráp trong xưởng}
+
+Màn hình xưởng có 3 cột:
+
+\begin{dtable}{P{42mm}L}
+\thead{Khu vực} & \thead{Chức năng} \\ \midrule
+\textbf{PARTS BIN} (trái) & 11 nhóm linh kiện. Rê chuột lên linh kiện để xem thông số và nguồn NASA. \\
+\textbf{BLUEPRINT} (giữa) & Tên lửa trên bệ phóng. Bên trái là các tầng (S1, S2, \dots) kèm \dv. Bên phải là mốc \textbf{CG} (vàng) và \textbf{CP} (cam) cùng biên độ ổn định. \\
+\textbf{LIVE ENGINEERING DATA} (phải) & Thanh đo cho từng bước kiểm tra. {\color{okc}Xanh} = đạt, {\color{warnc}vàng} = sát ngưỡng, {\color{failc}đỏ} = sẽ hỏng. Rê chuột lên thanh để xem giải thích và cách sửa. \\
+\end{dtable}
+
+\paragraph{Thao tác}\mbox{}
+
+\begin{dtable}{P{48mm}L}
+\thead{Muốn làm} & \thead{Cách làm} \\ \midrule
+Thêm linh kiện & Kéo từ PARTS BIN thả vào tên lửa (theo vạch \emph{insert here}), hoặc bấm vào linh kiện \\
+Đổi vị trí & Kéo linh kiện trên thân tàu, hoặc chọn rồi bấm \textbf{UP / DOWN} (\kbd{↑} \kbd{↓}) \\
+Xóa & Kéo vào thùng rác / về PARTS BIN, hoặc chọn rồi bấm \textbf{REMOVE} (\kbd{Delete}) \\
+Hoàn tác / làm lại & \kbd{Ctrl+Z} / \kbd{Ctrl+Y} \\
+Về thiết kế mẫu / xóa hết & \textbf{RESET} / \textbf{CLEAR} \\
+Xem hướng dẫn & Nút \textbf{?} hoặc \kbd{H} \\
+Phóng & \textbf{LAUNCH} hoặc \kbd{Enter} \\
+\end{dtable}
+
+\paragraph{Quy tắc lắp ráp} (vi phạm thì không phóng được)
+\begin{enumerate}
+  \item \textbf{Mũi chụp} nằm trên cùng, chỉ được có một cái.
+  \item Ngay dưới mũi là \textbf{khoang tải trọng}: đúng một \textbf{Bus} (khung vệ tinh), rồi đến thiết bị khoa học, pin, tản nhiệt, radio.
+  \item Khối lượng vệ tinh không vượt sức chứa của Bus: 6U CubeSat $\le 12$\,kg, Microsat $\le 100$\,kg, Smallsat $\le 180$\,kg.
+  \item Bên dưới là các \textbf{tầng tên lửa}, ngăn cách bằng \textbf{Stage Decoupler}. Mỗi tầng phải có động cơ và bình nhiên liệu cùng loại (hóa học, hoặc xenon cho động cơ ion).
+\end{enumerate}
+
+\subsection{Đọc bản vẽ và cân bằng thiết kế}
+
+\begin{dtable}{P{27mm}P{55mm}L}
+\thead{Kiểm tra} & \thead{Điều kiện đạt} & \thead{Nếu hỏng, thử\dots} \\ \midrule
+\textbf{Budget} & Tổng chi phí $\le$ ngân sách & Thay linh kiện rẻ hơn, bỏ thứ không cần \\
+\textbf{Liftoff TWR} & Lực đẩy tầng 1 $>$ trọng lượng cả tàu (nên $\ge 1{,}2$) & Dùng \emph{Booster Engine} hoặc 2 động cơ ở tầng dưới. \emph{Vacuum Engine} không có lực đẩy ở mặt đất. \\
+\textbf{Stability} & \textbf{CP nằm dưới CG} ít nhất 1 caliber & Đặt \textbf{cánh (fins) ở đáy} tên lửa, hoặc dùng cánh lớn hơn \\
+\textbf{\dv{} to orbit} & Tổng \dv{} các tầng $\ge$ yêu cầu & Thêm nhiên liệu hoặc thêm tầng. Bớt khối lượng thừa. Mũi tù làm mất thêm \dv. \\
+\textbf{\dv{} transfer} & \dv{} còn dư sau khi vào quỹ đạo $\ge$ yêu cầu & Thêm tầng trên. Động cơ ion rất tiết kiệm nhưng bị tính phạt $\times 1{,}75$. \\
+\textbf{Solar power} & Điện trung bình mỗi vòng $\ge$ điện tiêu thụ & Thêm pin mặt trời. Ở Sao Hỏa nắng chỉ còn 43\%. \\
+\textbf{Battery} & Pin đủ nuôi tàu qua vùng tối & Dùng pin lớn hơn \\
+\textbf{Thermal} & Mức tản nhiệt $\ge$ môi trường (+1 nếu tàu dùng $>100$\,W) & MLI cho LEO, Radiator cho Mặt Trăng, Heaters cho Sao Hỏa \\
+\textbf{Comms} & Có radio đủ tầm tới Trái Đất & UHF chỉ dùng được gần Trái Đất. S-band tới được Mặt Trăng. X-band tới được Sao Hỏa. \\
+\textbf{Data return} & Băng thông/ngày $\ge$ dữ liệu thiết bị tạo ra & Radio nhanh hơn, hoặc thiết bị ít dữ liệu hơn \\
+\textbf{Science} & Đủ điểm và đủ loại thiết bị yêu cầu & Thêm camera / spectrometer \\
+\end{dtable}
+
+\begin{tipbox}[title={Hiệu ứng domino}]
+Thêm 1 thiết bị nặng $\to$ tàu nặng hơn $\to$ \dv{} giảm và cần thêm điện $\to$ cần thêm pin mặt trời $\to$ lại nặng hơn và đắt hơn. Theo dõi các thanh đo bên phải để thấy chuỗi này.
+\end{tipbox}
+
+\subsection{Phóng và đọc báo cáo}
+
+\begin{itemize}
+  \item Khi phóng, bảng HUD hiện thời gian bay, độ cao, vận tốc, tầng hiện tại, kèm \textbf{Flight Log}. Phím \kbd{S} tua nhanh 2,5x, \kbd{Esc} bỏ qua để xem báo cáo.
+  \item \textbf{Báo cáo khám nghiệm} gồm:
+  \begin{itemize}
+    \item \textbf{ROOT CAUSE}: điều gì hỏng, giải thích bằng vật lý.
+    \item \textbf{PARTS INVOLVED}: linh kiện gây lỗi.
+    \item \textbf{HOW TO FIX}: gợi ý sửa.
+    \item \textbf{FLIGHT CHECKS}: toàn bộ kiểm tra. Dòng xám \emph{(predicted)} là lỗi sẽ xảy ra tiếp nếu chuyến bay đi xa hơn.
+  \end{itemize}
+  \item Bấm \textbf{FIX IN WORKSHOP} (\kbd{Enter}) để quay lại sửa. Linh kiện lỗi sẽ nhấp nháy đỏ.
+\end{itemize}
+
+\subsection{Kiếm sao}
+
+\begin{dtable}{P{18mm}L}
+\thead{Sao} & \thead{Điều kiện} \\ \midrule
+\stars{1} & Nhiệm vụ thành công \\
+\stars{1} & Tiết kiệm: chi phí $\le 80\%$ ngân sách \\
+\stars{1} & Khoa học vượt mức: điểm $\ge 1{,}5 \times$ yêu cầu \\
+\end{dtable}
+
+\subsection{Ví dụ: hoàn thành nhiệm vụ đầu tiên}
+
+\begin{enumerate}
+  \item Chọn \textbf{Eyes on Earth} rồi bấm \textbf{LAUNCH} ngay. Tên lửa \textbf{lật nhào}.
+  \item Báo cáo ghi \emph{Aerodynamic tumble --- CP is ahead of CG}.
+  \item \textbf{FIX IN WORKSHOP}: mở nhóm \textbf{Stabilizer Fins}, kéo \textbf{Large Fins} thả xuống \textbf{đáy} tên lửa. Mốc CP (cam) tụt xuống dưới CG (vàng), thanh \emph{Stability} chuyển xanh.
+  \item \textbf{LAUNCH} lần nữa: vào quỹ đạo, gửi dữ liệu về, \textbf{MISSION SUCCESS}.
+\end{enumerate}
+
+Hai nhiệm vụ còn lại cũng có một lỗi cài sẵn: Mặt Trăng bị \textbf{mất tín hiệu}, Sao Hỏa bị \textbf{sập nguồn}. Hãy tự tìm cách sửa!
+
+\subsection{Phím tắt}
+
+\begin{dtable}{P{30mm}L}
+\thead{Màn hình} & \thead{Phím} \\ \midrule
+Chọn nhiệm vụ & \kbd{1} \kbd{2} \kbd{3} \\
+Xưởng & \kbd{↑} \kbd{↓} di chuyển · \kbd{Delete} xóa · \kbd{Esc} bỏ chọn · \kbd{Ctrl+Z} / \kbd{Ctrl+Y} · \kbd{H} hướng dẫn · \kbd{Enter} phóng \\
+Phóng & \kbd{S} tốc độ · \kbd{Esc} xem báo cáo \\
+Báo cáo & \kbd{Enter} sửa · \kbd{R} phóng lại · \kbd{Esc} về danh sách nhiệm vụ \\
+Mọi nơi & \kbd{M} bật/tắt âm thanh \\
+\end{dtable}
+
+% ============================================================ III
+\clearpage
+\section{Các nguồn thông tin}
+
+Mỗi linh kiện trong \code{src/data/parts.js} có trường \code{source} trỏ tới một nguồn trong \code{SOURCES}. Game hiện tên nguồn trong ô thông tin khi rê chuột lên linh kiện. Dưới đây là đóng góp cụ thể của từng nguồn.
+
+\subsection{NASA Small Spacecraft Technology State-of-the-Art 2024 (SOA 2024)}
+
+\url{https://ntrs.nasa.gov/api/citations/20250000142/downloads/SOA_2024_final.pdf}
+
+Báo cáo thường niên của NASA về công nghệ vệ tinh nhỏ. Đây là \textbf{nguồn chính cho toàn bộ phần vệ tinh} (16 linh kiện).
+
+\begin{dtable}{LL}
+\thead{Đóng góp} & \thead{Dùng ở đâu trong game} \\ \midrule
+\textbf{Phân hạng vệ tinh nhỏ}: CubeSat (đơn vị 1U = 10\,cm), vi vệ tinh 10--100\,kg, vệ tinh nhỏ 100--180\,kg & 3 loại \textbf{Bus} và giới hạn khối lượng \code{maxSpacecraftMass} (12 / 100 / 180\,kg). Quy tắc \outcome{BUS_OVERLOADED}. \\
+Dải thông số \textbf{thiết bị khoa học} (camera, kính thiên văn, spectrometer, magnetometer) & Khối lượng, công suất, lượng dữ liệu/ngày của 4 thiết bị \\
+\textbf{Nguồn điện}: pin mặt trời, pin Li-ion & Solar Panel 30\,W / Array 150\,W, pin 40\,Wh / 300\,Wh \\
+\textbf{Liên lạc}: UHF, S-band, X-band & Tốc độ truyền và tầm phủ sóng của 3 radio, dùng trong kiểm tra \emph{Comms} và \emph{Data} \\
+\textbf{Đẩy trong không gian}: động cơ ion + xenon & Ion Thruster (Isp cao, lực đẩy cực nhỏ) và Xenon Tank \\
+\end{dtable}
+
+\subsection{NASA Venture Class Launch Services (VCLS)}
+
+\url{https://www.nasa.gov/kennedy/launch-services-program/}
+
+Chương trình của NASA mua dịch vụ phóng từ các \textbf{tên lửa đẩy hạng nhẹ} chuyên chở vệ tinh nhỏ. Đây là \textbf{nguồn cho phần tên lửa} (7 linh kiện).
+
+\begin{dtable}{LL}
+\thead{Đóng góp} & \thead{Dùng ở đâu trong game} \\ \midrule
+Quy mô của tên lửa hạng nhẹ chở vệ tinh nhỏ (khối lượng, lực đẩy, số tầng) & 3 bình nhiên liệu (3 / 9 / 25 tấn), 3 động cơ hóa học, Stage Decoupler \\
+Khác biệt giữa động cơ \textbf{tầng 1} (lực đẩy lớn ở mặt đất) và động cơ \textbf{chân không} (Isp cao, không dùng được ở mặt đất) & Thông số \code{thrustSL / thrustVac}, \code{ispSL / ispVac}. Kiểm tra \emph{Liftoff TWR} chỉ tính lực đẩy ở mực nước biển. \\
+Mức chi phí của một lần phóng hạng nhẹ & Giá linh kiện và ngân sách của 3 nhiệm vụ \\
+\end{dtable}
+
+\subsection{TIR-33: Calculating the Center of Pressure of a Model Rocket}
+
+\url{http://ftp.demec.ufpr.br/foguete/bibliografia/TIR-33%20Calculating%20the%20Center%20of%20Pressure%20of%20a%20Model%20Rocket.pdf}
+
+Tài liệu kỹ thuật về phương pháp Barrowman tính \textbf{tâm áp suất (CP)} của tên lửa. Đây là \textbf{nền tảng của toàn bộ cơ chế ổn định khí động học} (5 linh kiện: 3 mũi chụp, 2 bộ cánh).
+
+\begin{dtable}{LL}
+\thead{Đóng góp} & \thead{Dùng ở đâu trong game} \\ \midrule
+Công thức $X_{CP} = \sum (C_{N\alpha} X) / \sum C_{N\alpha}$ & \code{centerOfPressure()} trong \code{physics.js}. Vị trí mốc \textbf{CP} trên bản vẽ. \\
+Hệ số lực pháp tuyến của mũi chụp $C_{N\alpha} = 2$; vị trí CP của mũi \textbf{ogive ở 46,6\%}, \textbf{mũi nón ở 66,6\%} chiều dài & Thông số \code{aero} của 3 mũi chụp \\
+Cánh đuôi kéo CP về phía sau & Thông số \code{aero} của Small / Large Fins \\
+\textbf{Biên độ ổn định tĩnh} $= (X_{CP} - X_{CG}) / d$; CP phải nằm sau CG, nên $\ge 1$ caliber & Kiểm tra \emph{Stability} và kết quả \outcome{UNSTABLE} (lật nhào) \\
+Lực pháp tuyến $N = C_{N\alpha} \cdot \tfrac12 \rho v^2 \alpha A$, cùng các giới hạn áp dụng (góc tấn nhỏ, vận tốc cận âm) & \code{normalForce()}, \code{airDensity()}. Game chỉ áp dụng bài kiểm tra ổn định cho giai đoạn đầu trong khí quyển, đúng phạm vi của tài liệu. \\
+\end{dtable}
+
+\subsection{NASA Small Spacecraft Systems Virtual Institute --- Thermal Control}
+
+\url{https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/}
+
+Chương về \textbf{kiểm soát nhiệt} cho vệ tinh nhỏ. Nguồn cho 3 linh kiện tản nhiệt và kiểm tra \emph{Thermal}.
+
+\begin{dtable}{LL}
+\thead{Đóng góp} & \thead{Dùng ở đâu trong game} \\ \midrule
+Các giải pháp \textbf{thụ động} (chăn cách nhiệt MLI, tấm tản nhiệt) và \textbf{chủ động} (bộ sưởi, louver) & MLI Blanket, Radiator Panel, Heaters + Louvers (bộ sưởi tiêu tốn điện) \\
+Môi trường nhiệt khác nhau theo quỹ đạo & Mức \code{thermalSeverity} của nhiệm vụ: LEO 1, Mặt Trăng 2, Sao Hỏa 3. Tàu dùng $>100$\,W cần thêm một mức. \\
+\end{dtable}
+
+\subsection{NASA General Mission Analysis Tool (GMAT)}
+
+\url{https://github.com/nasa/GMAT}
+
+Phần mềm mã nguồn mở của NASA để thiết kế và tối ưu quỹ đạo, từ LEO, Mặt Trăng (gồm cả CubeSat lực đẩy thấp) tới Sao Hỏa.
+
+\begin{dtable}{LL}
+\thead{Đóng góp} & \thead{Dùng ở đâu trong game} \\ \midrule
+Các \textbf{loại nhiệm vụ mẫu}: quỹ đạo thấp, CubeSat lực đẩy thấp tới Mặt Trăng, liên hành tinh tới Sao Hỏa & 3 kịch bản trong \code{src/data/missions.js} \\
+Cơ sở để \textbf{đối chiếu ngân sách \dv}: vào LEO $\approx 9{,}4$\,km/s; tới quỹ đạo Mặt Trăng thêm $\approx 4{,}0$\,km/s; tới quỹ đạo Sao Hỏa thêm $\approx 5{,}7$\,km/s & \code{dvToOrbit}, \code{dvTransfer} của mỗi nhiệm vụ \\
+Quỹ đạo lực đẩy thấp tốn \dv{} hơn đốt xung & Hệ số phạt $\times 1{,}75$ cho động cơ ion \\
+\end{dtable}
+
+\subsection{Kiến thức nền tảng (không cần trích dẫn riêng)}
+
+\begin{dtable}{LL}
+\thead{Nội dung} & \thead{Dùng ở đâu} \\ \midrule
+\textbf{Phương trình tên lửa Tsiolkovsky} $\Delta v = I_{sp}\, g_0 \ln(m_0/m_f)$ & \dv{} từng tầng, có tính việc bỏ tầng rỗng và vỏ chụp mũi \\
+Hằng số thiên thể (bán kính, $\mu$ của Trái Đất, Mặt Trăng, Sao Hỏa), định luật Kepler & Chu kỳ quỹ đạo, tỷ lệ thời gian trong vùng tối $\arcsin\!\big(R/(R+h)\big)/\pi$ \\
+Định luật nghịch đảo bình phương của ánh sáng Mặt Trời & Pin mặt trời ở Sao Hỏa (1,52\,AU) chỉ còn $\approx 43\%$ công suất \\
+\end{dtable}
+
+\begin{warnbox}[title={Lưu ý về độ tin cậy của số liệu}]
+Các thông số hiện tại là \textbf{giá trị giữ chỗ trong khoảng hợp lý}. Mọi linh kiện đang để \code{verified: false}. Trước khi nộp bài, nhóm cần:
+\begin{enumerate}
+  \item Đối chiếu từng số với nguồn đã ghi, sửa nếu cần, rồi đổi thành \code{verified: true}.
+  \item So ngân sách \dv{} của 3 nhiệm vụ với bài toán mẫu trong GMAT.
+  \item Mở mục \textbf{Resources} trên trang thử thách và bổ sung nguồn ban tổ chức gợi ý (nếu có) vào \code{SOURCES}.
+  \item Chạy \code{npm run test:simulate} sau mỗi lần sửa số để chắc các nhiệm vụ vẫn giải được.
+\end{enumerate}
+\end{warnbox}
+
+\end{document}
