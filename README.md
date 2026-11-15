@@ -18,88 +18,88 @@ npm test           # run every test file
 npm run build      # production build into dist/
 ```
 
-## Hướng dẫn cài đặt thư viện
+## Installing the libraries
 
-### Yêu cầu
+### Requirements
 
-- [Node.js](https://nodejs.org/) 20 trở lên (kiểm tra: `node -v`)
-- [Python](https://www.python.org/) 3.11 trở lên (kiểm tra: `python --version`)
-- [Git](https://git-scm.com/) (cần để cài Spec Kit từ GitHub)
+- [Node.js](https://nodejs.org/) 20 or newer (check: `node -v`)
+- [Python](https://www.python.org/) 3.11 or newer (check: `python --version`)
+- [Git](https://git-scm.com/) (needed to install Spec Kit from GitHub)
 
-Các lệnh dưới đây chạy trong thư mục gốc của project (thư mục chứa `package.json`).
+Run the commands below in the project root (the folder that contains `package.json`).
 
-### 1. Cài Phaser (và các thư viện JavaScript khác)
+### 1. Install Phaser (and the other JavaScript libraries)
 
-Phaser, Vite và font đã được khai báo trong `package.json`, nên chỉ cần:
+Phaser, Vite and the fonts are already listed in `package.json`, so you only need:
 
 ```bash
 npm install
 ```
 
-Lệnh này tạo thư mục `node_modules/`. Nếu tạo project mới từ đầu và muốn tự thêm Phaser:
+This creates the `node_modules/` folder. If you are starting a new project from scratch and want to add Phaser yourself:
 
 ```bash
 npm install phaser
 npm install --save-dev vite
 ```
 
-Kiểm tra: `npm run dev` rồi mở http://localhost:8080.
+Check: run `npm run dev`, then open http://localhost:8080.
 
-### 2. Tạo môi trường ảo Python (venv)
+### 2. Create a Python virtual environment (venv)
 
-Spec Kit được cài trong venv `.venv` của project, không cài global. `.venv` nằm trong `.gitignore`,
-nên sau khi clone project phải tạo lại:
+Spec Kit is installed in the project's `.venv` venv, not globally. `.venv` is in `.gitignore`,
+so you have to create it again after cloning the project:
 
 ```bash
 python -m venv .venv
 ```
 
-Kích hoạt venv (không bắt buộc, nhưng sau đó có thể gõ thẳng `specify`, `pip`):
+Activate the venv (optional, but then you can type `specify` and `pip` directly):
 
-| Shell | Lệnh |
-| ----- | ---- |
+| Shell | Command |
+| ----- | ------- |
 | PowerShell | `.venv\Scripts\Activate.ps1` |
 | cmd | `.venv\Scripts\activate.bat` |
 | Git Bash | `source .venv/Scripts/activate` |
 | macOS / Linux | `source .venv/bin/activate` |
 
-Thoát venv: `deactivate`. Muốn xoá sạch mọi thứ đã cài: xoá thư mục `.venv`.
+Leave the venv: `deactivate`. To remove everything you installed: delete the `.venv` folder.
 
-Nếu PowerShell báo lỗi "running scripts is disabled", chạy một lần:
+If PowerShell shows the error "running scripts is disabled", run this once:
 
 ```powershell
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ```
 
-### 3. Cài Spec Kit (`specify` CLI)
+### 3. Install Spec Kit (`specify` CLI)
 
-Sau khi đã kích hoạt venv:
+After activating the venv:
 
 ```bash
 pip install git+https://github.com/github/spec-kit.git
 specify --help
 ```
 
-Hoặc không cần kích hoạt venv (Windows):
+Or without activating the venv (Windows):
 
 ```bash
 .venv\Scripts\python -m pip install git+https://github.com/github/spec-kit.git
 ```
 
-Cập nhật Spec Kit: chạy lại lệnh `pip install` ở trên kèm `--upgrade`.
+To update Spec Kit: run the `pip install` command above again with `--upgrade`.
 
-Project đã có sẵn thư mục `.specify/` và `.claude/skills/speckit-*`, nên **không cần** chạy `specify init`
-khi mới clone. Chỉ chạy lại khi muốn cập nhật template/lệnh sau khi nâng cấp Spec Kit:
+The project already has the `.specify/` and `.claude/skills/speckit-*` folders, so you **do not need** to run `specify init`
+after cloning. Only run it again if you want to update the templates/commands after upgrading Spec Kit:
 
 ```bash
 specify init --here --force --non-interactive --integration claude --ignore-agent-tools
 ```
 
-(`--ignore-agent-tools` cần khi lệnh `claude` không có trong PATH, ví dụ chỉ dùng extension VS Code.)
+(`--ignore-agent-tools` is needed when the `claude` command is not in your PATH, for example when you only use the VS Code extension.)
 
-Cách dùng các lệnh `/speckit-*` trong Claude Code: xem [specins.md](specins.md).
+How to use the `/speckit-*` commands in Claude Code: see [specins.md](specins.md).
 
-### Tóm tắt (clone về máy mới, Windows PowerShell)
+### Summary (cloning onto a new machine, Windows PowerShell)
 
 ```powershell
 npm install
@@ -195,11 +195,3 @@ Fonts: [Silkscreen](https://fonts.google.com/specimen/Silkscreen) and
 [VT323](https://fonts.google.com/specimen/VT323) (SIL Open Font License), bundled via `@fontsource`,
 so the game works offline.
 
-## Before submission
-
-- Every part in `src/data/parts.js` has `verified: false`. Check each value against the cited NASA
-  source (SOA 2024, VCLS, S3VI Thermal) and set `verified: true`. The tests in
-  `tests/simulate.test.js` will tell you if a changed value breaks a mission.
-- Cross-check the delta-v budgets in `src/data/missions.js` with GMAT sample missions.
-- Declare AI use in the project description: the code, including the code that draws all the pixel
-  art and synthesises the sounds, was written with an AI assistant.
