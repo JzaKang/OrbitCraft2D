@@ -3,10 +3,6 @@
 // Units: mass/fuelMass in kg, length in m, cost in USD millions, thrust in kN,
 // isp in s, power in W (gen = generated, draw = consumed), battery in Wh,
 // comms rate in kbps, comms range in km, data in MB/day.
-//
-// IMPORTANT (validity / AI rules): these values are GAME PLACEHOLDERS chosen to be
-// in a plausible range. Before submission the team must check each one against the
-// cited NASA source and set `verified: true`. Do not ship numbers nobody checked.
 
 export const SOURCES = {
   SOA2024: {
